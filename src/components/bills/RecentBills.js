@@ -8,7 +8,7 @@ const Body = () => {
 
   useEffect(() => {
     const fetchBills = async () => {
-      const apiKey = "hCMFRSQeE48cpPebKhz5AmUw07bHDU5PWHQFIHjP";
+      const apiKey = "";
       const response = await axios.get(`https://api.congress.gov/v3/bill/118/hr?api_key=${apiKey}`);
       const billsData = response.data.bills.map(bill => ({
         id: bill.number,

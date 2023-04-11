@@ -106,7 +106,7 @@ gpt = AI()
 # #prompt = {"role": "system", "content": "you are a world class writer and political analyst.  Please only respond with the summary of the bill I send.  repsond in json format with {title:"", sponsers:"", vote_date:"", summary:""} "},{"role": "user", "content": message}
 
 params = {
-    'api_key': "hCMFRSQeE48cpPebKhz5AmUw07bHDU5PWHQFIHjP"
+    'api_key': ""
 }
 response = requests.get("https://api.congress.gov/v3/bill/118/hr", params=params)
 bills = response.json()["bills"]

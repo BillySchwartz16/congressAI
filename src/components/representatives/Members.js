@@ -14,7 +14,7 @@ function Members({ chamber }) {
         `https://api.propublica.org/congress/v1/118/${chamber}/members.json`,
         {
           headers: {
-            "X-API-Key": "i6DR8OCj31eYgSimJ2rWe99vTDV95RWOWNI8c7FW",
+            "X-API-Key": "",
           },
         }
       );
