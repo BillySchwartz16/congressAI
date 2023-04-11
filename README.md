@@ -24,5 +24,20 @@ These instructions will guide you through the process of setting up the project 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/congressAI.git
+git clone https://github.com/BillySchwartz16/congressAI.git
+```
+2. Change into the project directory:
+```bash
+cd CounsilAI
+```
+3. Install the project dependencies:
+```bash
+npm install
+```
+4. Run the development server:
+```bash
+npm start
+```
+
+
 
