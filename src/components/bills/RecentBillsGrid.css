@@ -1,0 +1,65 @@
+/* RecentBillsGrid.css */
+
+.recent-bills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    border: 1px solid #cccccc1e;
+    margin-right: 20px;
+  }
+
+  .bill-card {
+    background-color: #fafafa;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bill-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent 80%, rgba(255, 255, 255, 0.5) 90%, rgba(255, 255, 255, 0.8) 95%, rgba(255, 255, 255, 0.9) 100%);
+    z-index: -1;
+  }
+
+
+  .bill-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .bill-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+
+  .bill-details {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 2px;
+  }
+
+  .bill-summary {
+    font-size: 14px;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+
+  .latest-action {
+    font-size: 12px;
+    color: #dc3546;
+    margin-top: 20px;
+  }
+
+  .bill-info {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 20px;
+  }
+

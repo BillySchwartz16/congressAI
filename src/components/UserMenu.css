@@ -1,0 +1,16 @@
+.user-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-menu button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .user-menu button:last-child {
+    margin-right: 0;
+  }
