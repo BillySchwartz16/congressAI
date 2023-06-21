@@ -5,10 +5,12 @@ import './SideBar.css';
 import FilterBySponsor from './filters/FilterBySponsor';
 import FilterByStatus from './filters/FilterByStatus';
 import FilterByType from './filters/FilterByTopic';
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = ({ setChamber }) => {
   const [collapsed, setCollapsed] = useState(true);
   const [membersCollapsed, setMembersCollapsed] = useState(true);
+  const navigate = useNavigate();
 
   const handleCollapse = () => {
     setCollapsed(!collapsed);
@@ -16,6 +18,10 @@ const SideBar = ({ setChamber }) => {
 
   const handleMembersCollapse = () => {
     setMembersCollapsed(!membersCollapsed);
+  };
+
+  const handleNavigate = (path) => {
+    navigate(path);
   };
 
   return (
@@ -39,12 +45,12 @@ const SideBar = ({ setChamber }) => {
           Members <FontAwesomeIcon icon={faCaretDown} />
         </button>
         <div className={`members-content ${membersCollapsed ? '' : 'show'}`}>
-          <button className="sub-btn" onClick={() => setChamber("senate")}>Senate</button>
-          <button className="sub-btn" onClick={() => setChamber("house")}>House</button>
+          <button className="sub-btn" onClick={() => handleNavigate('/senate')}>Senate</button>
+          <button className="sub-btn" onClick={() => handleNavigate('/house')}>House</button>
         </div>
       </div>
       <div className="bills-dropdown">
-        <button className="bills-btn">Bills</button>
+        <button className="bills-btn" onClick={() => handleNavigate('/bills')}>Bills</button>
       </div>
     </div>
   );

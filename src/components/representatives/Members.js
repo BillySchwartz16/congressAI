@@ -14,7 +14,7 @@ function Members({ chamber }) {
         `https://api.propublica.org/congress/v1/118/${chamber}/members.json`,
         {
           headers: {
-            "X-API-Key": "",
+            "X-API-Key": "i6DR8OCj31eYgSimJ2rWe99vTDV95RWOWNI8c7FW",
           },
         }
       );
@@ -46,6 +46,32 @@ function Members({ chamber }) {
     event.target.src = `${flagBaseUrl}us.png`;
   };
 
+  const [observer, setObserver] = useState(null);
+
+  useEffect(() => {
+    const options = {
+      rootMargin: "0px 0px 100px 0px",
+      threshold: 0.01,
+    };
+
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          observer.unobserve(lazyImage);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    setObserver(observer);
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className="members-container">
       {members.map((member, index) => (
@@ -55,9 +81,12 @@ function Members({ chamber }) {
           <p>State: {member.state}</p>
           <p>District: {member.district}</p>
           <img
-            src={member.image_url}
+            data-src={member.image_url}
             alt={member.name}
             onError={(event) => handleError(event, member.state)}
+            ref={(element) => {
+              if (observer && element) observer.observe(element);
+            }}
           />
         </div>
       ))}
